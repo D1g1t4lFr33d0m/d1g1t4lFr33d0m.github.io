@@ -1,0 +1,172 @@
+
+<style>
+  :host {
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+    color: #ffff;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 190px;
+    height: 100%;
+    background-color: #1c1c1c;
+    color: white;
+    font-weight: 600;
+  }
+
+  .toolbar .logo_img {
+    padding-top: 25px;
+    padding-left: 25px;
+    padding-bottom: 25px;
+    width: 139px;
+    height: 114px;
+
+  }
+
+  .toolbar h1{
+    color: #545454;
+    font-size: 15px;
+    margin-top: 0;
+    margin-bottom: 60px;
+    text-align: center;
+  }
+
+  .toolbar a{
+    color: #ffff;
+    font-size: 20px;
+    display: block;
+    width: 100%;
+    line-height: 60px;
+    text-decoration: none;
+    text-align: center;
+    transition: 0.5s;
+    transition-property: color;
+    letter-spacing: 2px;
+  }
+
+  .toolbar a:hover{
+    color: #8d1f56;
+  }
+
+
+
+  .toolbar a:focus {
+    color: #8d1f56;
+  }
+
+
+  .lang-menu{
+    margin-top: 100px;
+  }
+
+  .select-lang{
+    font-size: 20px;
+    cursor: pointer;
+    margin: 0 auto;
+    display: flex;
+    line-height: 1.6;
+    width: 170px;
+  }
+
+  .select-lang:before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin-left: 15px;
+    margin-right: 10px;
+    vertical-align: middle;
+    background-image: url("https://www.countryflags.io/us/flat/32.png");
+  }
+
+  .lang-menu ul{
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: 3px solid #8d1f56;
+    border-radius: 5px;
+    display: none;
+  }
+
+  .lang-menu ul li {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+  }
+
+  .lang-menu ul li h2{
+    width: 170px;
+    display: block;
+    padding: 5px 10px;
+  }
+
+  .lang-menu ul li h2:hover{
+    transition: 0.5s;
+    transition-property: color;
+    color: #8d1f56;
+  }
+
+  .lang-menu ul li h2:before{
+    content: '';
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin-left: 15px;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+
+
+  .pl:before{
+    background-image: url("https://www.countryflags.io/pl/flat/32.png");
+  }
+
+  .en:before{
+    background-image: url("https://www.countryflags.io/us/flat/32.png");
+  }
+
+.lang-menu:hover ul{
+  display: block;
+}
+
+</style>
+<body>
+
+  <div class="toolbar">
+    <div class="center">
+         <img src="../../assets/img/logo_white.png" class="logo_img" alt="xxx"/>
+      <h1> BY DIGITAL FREEDOM </h1>
+    </div>
+      <a routerLink="/home">HOME</a>
+      <a routerLink="/team">TEAM</a>
+      <a routerLink="/about">ABOUT</a>
+      <a routerLink="/donations">DONATION</a>
+      <a routerLink="/contact">CONTACT</a>
+      <a routerLink="/download">DOWNLOAD</a>
+
+
+    <div class="lang-menu">
+      <div class="select-lang">
+        ENGLISH
+      </div>
+      <ul>
+        <li>
+          <h2 class="pl" lang="polish">POLISH</h2>
+        </li>
+        <li>
+          <h2 class="en" lang="english">ENGLISH</h2>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+<router-outlet></router-outlet>
+</body>

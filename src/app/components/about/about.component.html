@@ -1,0 +1,199 @@
+<style>
+
+  *{
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+    color: #ffff;
+  }
+
+  .container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    left: 250px;
+    top: 10px;
+    position: relative;
+    width: 1450px;
+    height: 870px;
+    margin: 40px;
+    background-color: #1c1c1c;
+    border-radius: 10px;
+  }
+  .what,
+  .work,
+  .command,
+  .include {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    float: left;
+  }
+
+  .what ul,
+  .work ul,
+  .command ul,
+  .include ul {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    list-style: none;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .what ul {
+    top: 250px;
+    width: 1100px;
+    height: 400px;
+    left: 120px;
+  }
+
+  .work ul{
+    top: 250px;
+    width: 1100px;
+    height: 400px;
+    left: -220px;
+  }
+  .command ul{
+    top: 200px;
+    width: 1100px;
+    height: 500px;
+    left: -560px;
+  }
+  .include ul {
+    width: 1100px;
+    height: 700px;
+    left: -900px;
+  }
+
+  .drop button {
+    margin-top: 25px;
+    margin-left: 20px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    width: 320px;
+    height: 80px;
+    background: none;
+    border: 6px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+    color: #ffffff;
+    }
+
+  .drop button:hover {
+    color: #8d1f56;
+    transition: 1s;
+  }
+  .drop button:focus {
+    outline: none;
+    color: #ffffff;
+    border-color: #1c1c1c;
+    background-color: #8d1f56;
+  }
+
+  .drop li {
+    text-align: left;
+    padding-right: 30px;
+    font-size: 20px;
+    line-height: 40px;
+    color: #ffffff;
+  }
+
+  .drop p {
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+  }
+
+
+  .what button:focus + ul{
+    opacity: 1;
+    pointer-events: all;
+  }
+  .work button:focus + ul{
+    opacity: 1;
+    pointer-events: all;
+  }
+  .command button:focus + ul{
+    opacity: 1;
+    pointer-events: all;
+  }
+  .include button:focus + ul{
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .drop p {
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 5px;
+  }
+
+</style>
+
+<body>
+  <div class="container">
+    <div class="drop">
+      <div class="what">
+        <button>What is Linux ?</button>
+            <ul>
+              <li>
+                Linux® is an open source operating system (OS). An operating system is the software that directly manages a system’s hardware and resources, like CPU, memory, and storage. The OS sits between applications and hardware and makes the connections between all of your software and the physical resources that do the work.
+                Think about an OS like a car engine. An engine can run on its own, but it becomes a functional car when it’s connected with a transmission, axles, and wheels. Without the engine running properly, the rest of the car won’t work.
+             </li>
+           </ul>
+     </div>
+       <div class="work">
+        <button>How does Linux work?</button>
+            <ul>
+              <li>
+                Linux was designed to be similar to UNIX, but has evolved to run on a wide variety of hardware from phones to supercomputers. Every Linux-based OS involves the Linux kernel—which manages hardware resources—and a set of software packages that make up the rest of the operating system.
+              </li>
+            </ul>
+        </div>
+     <div class="command">
+        <button>What's a command line?</button>
+           <ul>
+             <li>
+               The command line is your direct access to a computer. It's where you ask software to perform hardware actions that point-and-click graphical user interfaces (GUIs) simply can't ask.
+
+               Command lines are available on many operating systems—proprietary or open source. But it’s usually associated with Linux, because both command lines and open source software, together, give users unrestricted access to their computer.
+
+               Our latest release of Red Hat® Enterprise Linux comes with even more built-in command line capabilities than ever before and includes consoles that bundle those capabilities in easy-to-use modules that exist off of the command line.
+
+               Review the features of the latest release
+             </li>
+            </ul>
+     </div>
+     <div class="include">
+        <button>What does Linux include?</button>
+            <ul>
+              <li>
+                <p>Kernel:</p>
+               The base component of the OS. Without it, the OS doesn’t work. The kernel manages the system’s resources and communicates with the hardware. It’s responsible for memory, process, and file management.
+
+                <p>System user space:</p>
+               The administrative layer for system level tasks like configuration and software install. This includes the shell, or command line, daemons, processes that run in the background, and the desktop environment, the interface the users interacts with.
+
+                <p>Applications:</p>
+               A type of software that lets you perform a task. Apps include everything from desktop tools and programming languages to multiuser business suites. Most Linux distributions offer a central database to search for and download additional apps.
+
+                <p>Linux and open source:</p>
+               Linux is a free, open source operating system, released under the GNU General Public License (GPL). Anyone can run, study, modify, and redistribute the source code, or even sell copies of their modified code, as long as they do so under the same license.
+             </li>
+           </ul>
+      </div>
+    </div>
+  </div>
+</body>
