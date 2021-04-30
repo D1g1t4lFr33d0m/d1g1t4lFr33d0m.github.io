@@ -1,0 +1,797 @@
+<style>
+
+  * :after, :before {
+    box-sizing: inherit;
+  }
+
+  body{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  :host {
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .toolbar {
+    position: absolute;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #1c1c1c;
+    color: white;
+    font-weight: 600;
+  }
+
+  .toolbar img {
+    margin: 0 16px;
+  }
+
+  span {
+    font-size: 20px;
+  }
+
+  .content {
+    display: flex;
+    margin: 0 auto;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content img {}
+
+
+  .content h2 {
+    font-size: 40px;
+    letter-spacing: 2px;
+  }
+
+  .content h4 {
+    padding-top: 40px;
+    font-size: 40px;
+    letter-spacing: 2px;
+  }
+
+  .first {
+    top: 470px;
+    height: 200px;
+    width: 300px;
+    position: absolute;
+    text-align: center;
+    justify-content: center;
+    color: #fff;
+  }
+
+  .first h3{
+    margin-top: 40px;
+    text-align: center;
+    font-size: 40px;
+    letter-spacing: 3px;
+  }
+
+  .first h2{
+    margin-top: 30px;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 3px;
+  }
+
+  /*team*/
+
+  .team {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 425px;
+  }
+
+  .box{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    background: #010615;
+    transition: 0.5s;
+  }
+
+  .box h3{
+    text-align: center;
+  }
+
+  .box:hover {
+    height: 400px;
+  }
+  .box .imgPR {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .box .imgPR img {
+    max-width: 100%;
+    opacity: 0.1;
+    transition: 0.5s;
+  }
+
+  .box:hover .imgPR img{
+    opacity: 1;
+  }
+
+  .box:before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom:-2px ;
+    background: white;
+    z-index: -1;
+  }
+  .box:after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom:-2px ;
+    background: white;
+    z-index: -2;
+    filter: blur(40px);
+  }
+  .box:before,
+  .box:after {
+    background: linear-gradient(235deg, #008900, #010615, #008900);
+  }
+  .box:nth-child(2):before,
+  .box:nth-child(2):after {
+    background: linear-gradient(235deg, #0180ff, #161616, #0180ff);
+  }
+
+  .box:nth-child(3):before,
+  .box:nth-child(3):after {
+    background: linear-gradient(235deg, #FF0000, #161616, #FF0000);
+  }
+
+  .box:nth-child(4):before,
+  .box:nth-child(4):after {
+    background: linear-gradient(235deg, #800080, #161616, #800080);
+  }
+
+  .box:nth-child(5):before,
+  .box:nth-child(5):after {
+    background: linear-gradient(235deg, #fe7f00, #161616, #fe7f00);
+  }
+
+
+  .box .content {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    height: 90px;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.5s;
+  }
+
+  .box:hover .content {
+    opacity: 1;
+    transition: 0.5s;
+  }
+
+  .box .content h3{
+    font-size: 20px;
+    color: #fff;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 1px;
+  }
+  .box .content h3 span{
+    font-size: 14px;
+    color: #fff;
+    font-weight: 200;
+    line-height: 20px;
+    letter-spacing: 2px;
+  }
+
+  /*next*/
+  .next {
+    padding-bottom: 20px;
+  }
+
+  .next h2 {
+    padding-top: 40px;
+  }
+
+  .next h2, p{
+    text-align: center;
+  }
+
+  /*video*/
+
+  .vid {
+    padding-top: 30px;
+    position: relative;
+  }
+
+  .vid iframe{
+    width: 760px;
+    height: 515px;
+  }
+
+  /*download*/
+
+  .down {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .box1 h1 {
+    padding-top: 20px;
+    text-align: center;
+    margin-top: -120px;
+    width: 300px;
+    height: 100px;
+    background: none;
+    display: inline-block;
+    position: absolute;
+    letter-spacing: 3px;
+    color: #333;
+  }
+
+  .box1 h2{
+    padding-top: 20px;
+    text-align: center;
+    margin-top: -60px;
+    width: 300px;
+    height: 100px;
+    font-size: 16px;
+    background: none;
+    display: inline-block;
+    position: absolute;
+    letter-spacing: 3px;
+    color: #333;
+  }
+
+  .box1 h6 {
+    text-align: center;
+  }
+
+  button{
+    position: relative;
+    padding: 20px 50px;
+    margin-left: 15px;
+    color: #333;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 30px;
+    transition: 0.5s;
+    border-style: none;
+    background: none;
+    overflow: hidden;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0003);
+    cursor: pointer;
+  }
+
+  .box1 {
+    position: relative;
+    width: 300px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    margin: 50px;
+    transition: 0.5s;
+  }
+
+  .bt1:hover{
+    color:#fff;
+    background:  #0180ff;
+    box-shadow: 0 0 100px #0180ff;
+    transition-delay: 0.5s;
+  }
+
+  .bt2:hover{
+    color: #fff;
+    background:  #FF0000;
+    box-shadow: 0 0 100px #FF0000;
+    transition-delay: 0.5s;
+  }
+
+  .bt3:hover{
+    color: #fff;
+    background:  #008900;
+    box-shadow: 0 0 100px #008900;
+    transition-delay: 0.5s;
+  }
+
+  .bt4:hover{
+    color: #fff;
+    background:  #800080;
+    box-shadow: 0 0 100px #800080;
+    transition-delay: 0.5s;
+  }
+
+  .bt5:hover{
+    color: #fff;
+    background:  #fe7f00;
+    box-shadow: 0 0 100px #fe7f00;
+    transition-delay: 0.5s;
+  }
+
+  button:before{
+    content: '';
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    transition: 0.5s;
+  }
+
+  .bt1:before {
+    border-top: 4px solid #0180ff;
+    border-left: 4px solid #0180ff;
+  }
+  .bt2:before {
+    border-top: 4px solid #FF0000;
+    border-left: 4px solid #FF0000;
+  }
+  .bt3:before {
+    border-top: 4px solid #008900;
+    border-left: 4px solid #008900;
+  }
+  .bt4:before {
+    border-top: 4px solid #800080;
+    border-left: 4px solid #800080;
+  }
+  .bt5:before {
+    border-top: 4px solid #fe7f00;
+    border-left: 4px solid #fe7f00;
+  }
+
+  button:hover:before{
+    width: 100%;
+    height: 100%;
+  }
+
+  button:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    transition: 0.5s;
+  }
+
+  .bt1:after {
+    border-right: 4px solid #0180ff;
+    border-bottom: 4px solid #0180ff;
+  }
+  .bt2:after {
+    border-right: 4px solid #FF0000;
+    border-bottom: 4px solid #FF0000;
+  }
+  .bt3:after {
+    border-right: 4px solid #008900;
+    border-bottom: 4px solid #008900;
+  }
+  .bt4:after {
+    border-right: 4px solid #800080;
+    border-bottom: 4px solid #800080;
+  }
+  .bt5:after {
+    border-right: 4px solid #fe7f00;
+    border-bottom: 4px solid #fe7f00;
+  }
+
+  button:hover:after{
+    width: 100%;
+    height: 100%;
+  }
+
+  .bt1 {
+    color: #0180ff;
+  }
+  .bt2 {
+    color: #FF0000;
+  }
+  .bt3 {
+    color: #008900;
+  }
+  .bt4 {
+    color: #800080;
+  }
+  .bt5 {
+    color: #fe7f00;
+  }
+
+  button:focus{
+    outline: none;
+  }
+
+  /*ABOUT*/
+
+  .about h1 {
+    text-align: center;
+    font-size: 25px;
+  }
+
+  .about li {
+    text-align: center;
+    list-style: none;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .about li p {
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 10px;
+  }
+
+  /*Donation*/
+
+  .donation {
+    display: flex;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .donation h3{
+    display: block;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 30px;
+    letter-spacing: 2px;
+  }
+
+  .donation h2 {
+    padding-top: 40px;
+    color: #333;
+  }
+
+
+  .donation a {
+    display: block;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 25px;
+    letter-spacing: 2px;
+    color: #333;
+  }
+
+  .donation a:hover{
+    transition: 0.5s;
+    transition-property: color;
+    font-weight: bold;
+    color: #800080;
+  }
+
+  /**FOOTER**/
+
+  footer {
+    display: block;
+    bottom: 0;
+    width: 100vw;
+    background-color: #1c1c1c;
+    color: #fff;
+    align-items: center;
+    flex-direction: column;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  footer a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-items: center;
+  }
+
+
+  /* Responsive Styles */
+
+  @media screen and (max-width: 1700px) {
+
+    .team {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      height: 1250px;
+    }
+
+  }
+
+  @media screen and (max-width: 767px) {
+
+    .vid iframe{
+      width: 460px;
+      height: 215px;
+    }
+
+    .team {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      height: 1750px;
+    }
+
+    .down {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+
+  }
+
+</style>
+
+<body>
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+  <img width="50" alt="Logo" src="assets/logo_white.png">
+  <span>LINUX UD 2.2</span>
+    <div class="spacer"></div>
+</div>
+
+<div class="content" role="main">
+
+  <!-- Highlight Card -->
+
+  <img src="assets/background.jpg">
+  <div class="first">
+    <h3>WELCOME</h3>
+    <h2>Here u will find our UPDATE for LINUX </h2>
+  </div>
+
+  <!-- Next Steps -->
+
+  <div class="next">
+    <h2>DOWNLOAD</h2>
+    <p>We have 4 updates for you.</p>
+    <p>Click button for more information! </p>
+
+  </div>
+
+  <!-- DOWNLOAD -->
+
+  <div class="down">
+
+    <div class="box1">
+      <h1>OFFICE</h1>
+      <h2>UPDATE:</h2>
+      <a href="https://github.com/LinuxUD/LinuxUD-office">
+        <button class="bt1"><h5> DOWNLOAD </h5></button>
+      </a>
+    </div>
+
+    <div class="box1">
+      <h1>GAMER</h1>
+      <h2>UPDATE:</h2>
+      <a href="https://github.com/LinuxUD/LinuxUD-gamer">
+        <button class="bt2"><h5> DOWNLOAD </h5></button>
+      </a>
+    </div>
+
+    <div class="box1">
+      <h1>HACKER</h1>
+      <h2>UPDATE:</h2>
+      <a href="https://github.com/LinuxUD/LinuxUD-hacker">
+        <button class="bt3"><h5> DOWNLOAD </h5></button>
+      </a>
+    </div>
+
+    <div class="box1">
+      <h1>DEVELOPER</h1>
+      <h2>UPDATE:</h2>
+      <a href="https://github.com/LinuxUD/LinuxUD-developer">
+        <button class="bt4"><h5> DOWNLOAD </h5></button>
+      </a>
+    </div>
+
+    <div class="box1">
+      <h1>UBUNTU</h1>
+      <h2>ISO:</h2>
+      <a href="https://ubuntu.com/">
+        <button class="bt5"><h5> DOWNLOAD </h5></button>
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- VIDEO -->
+
+  <h4>HOW TO UPDATE</h4>
+  <div class="vid">
+     <iframe src="https://www.youtube.com/embed/0MJRJlL68EQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+  <!-- TEAM -->
+
+  <h4>TEAM</h4>
+<div class="team">
+
+   <div class="box">
+      <div class="imgPR">
+        <img src="assets/img/sejki.png">
+      </div>
+      <div class="content">
+        <h3>Kacper "53JK1" Bąk<br><span>LEADER / PROGRAMMER</span></h3>
+      </div>
+   </div>
+   <div class="box">
+     <div class="imgPR">
+        <img src="assets/img/lewap.jpg">
+      </div>
+      <div class="content">
+        <h3>Paweł "Łewap" Norwa<br><span>PROGRAMMER</span></h3>
+      </div>
+    </div>
+   <div class="box">
+      <div class="imgPR">
+        <img src="assets/img/cwan1aczek.png">
+      </div>
+      <div class="content">
+        <h3>Marcin "CWAN1ACZEK" Cupek<br><span>GRAPHIC DESIGNER</span></h3>
+      </div>
+   </div>
+   <div class="box">
+     <div class="imgPR">
+       <img src="assets/img/princess.png">
+     </div>
+      <div class="content">
+       <h3>Kacper "Princess" Markiewicz<br><span>PRESENTER / PROGRAMMER</span></h3>
+      </div>
+    </div>
+    <div class="box">
+      <div class="imgPR">
+        <img src="assets/img/luk.jpg">
+      </div>
+      <div class="content">
+        <h3>Łukasz "luk33374" Solik<br><span>PROGRAMMER</span></h3>
+      </div>
+  </div>
+</div>
+
+  <!-- Next Steps -->
+  <div class="next">
+    <h2>ABOUT</h2>
+    <p>Here u will find some informations about our project.</p>
+  </div>
+
+  <!-- ABOUT -->
+
+  <div class="about">
+    <div class="box2">
+      <h1>What is Linux ?</h1>
+      <ul>
+        <li>
+          Linux® is an open source operating system (OS). An operating system is the software that directly manages a system’s hardware and resources, like CPU, memory, and storage. The OS sits between applications and hardware and makes the connections between all of your software and the physical resources that do the work.
+          Think about an OS like a car engine. An engine can run on its own, but it becomes a functional car when it’s connected with a transmission, axles, and wheels. Without the engine running properly, the rest of the car won’t work.
+        </li>
+      </ul>
+    </div>
+    <div class="box2">
+      <h1>How does Linux work?</h1>
+      <ul>
+        <li>
+          Linux was designed to be similar to UNIX, but has evolved to run on a wide variety of hardware from phones to supercomputers. Every Linux-based OS involves the Linux kernel—which manages hardware resources—and a set of software packages that make up the rest of the operating system.
+        </li>
+      </ul>
+    </div>
+    <div class="box2">
+      <h1>What's a command line?</h1>
+      <ul>
+        <li>
+          The command line is your direct access to a computer. It's where you ask software to perform hardware actions that point-and-click graphical user interfaces (GUIs) simply can't ask.
+
+          Command lines are available on many operating systems—proprietary or open source. But it’s usually associated with Linux, because both command lines and open source software, together, give users unrestricted access to their computer.
+
+          Our latest release of Red Hat® Enterprise Linux comes with even more built-in command line capabilities than ever before and includes consoles that bundle those capabilities in easy-to-use modules that exist off of the command line.
+
+          Review the features of the latest release
+        </li>
+      </ul>
+    </div>
+    <div class="box2">
+      <h1>What does Linux include?</h1>
+      <ul>
+        <li>
+          <p>Kernel:</p>
+          The base component of the OS. Without it, the OS doesn’t work. The kernel manages the system’s resources and communicates with the hardware. It’s responsible for memory, process, and file management.
+
+          <p>System user space:</p>
+          The administrative layer for system level tasks like configuration and software install. This includes the shell, or command line, daemons, processes that run in the background, and the desktop environment, the interface the users interacts with.
+
+          <p>Applications:</p>
+          A type of software that lets you perform a task. Apps include everything from desktop tools and programming languages to multiuser business suites. Most Linux distributions offer a central database to search for and download additional apps.
+
+          <p>Linux and open source:</p>
+          Linux is a free, open source operating system, released under the GNU General Public License (GPL). Anyone can run, study, modify, and redistribute the source code, or even sell copies of their modified code, as long as they do so under the same license.
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+
+  <!-- Donation -->
+
+  <div class="donation">
+    <h2>DONATIONS:</h2>
+    <p>Help us help you <3</p>
+    <h3>BITCOIN:</h3>
+    <p>bc1q2j6cstdk537ppmtwdsjpkvvswnp9j8hcmrl9py</p>
+    <h3>LIBERAPAY:</h3>
+    <a href="https://liberapay.com/53jk1/donate">-- CLICK ME --</a>
+    <h3>BUYMEACOFFEE:</h3>
+    <a href="https://www.buymeacoffee.com/53jk1">-- CLICK ME --</a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+
+    <p>GREETINGS TO THE SHERIFF</p>
+    <p>──────▄▀▄─────▄▀▄──────</p>
+    <p>─────▄█░░▀▀▀▀▀░░█▄─────</p>
+    <p>─▄▄──█░░░░░░░░░░░█──▄▄─</p>
+    <p>█▄▄█─█░░▀░░┬░░▀░░█─█▄▄█ </p>
+
+  </footer>
+
+
+</div>
+</body>
